@@ -8,11 +8,7 @@ require 'directors_database'
 def directors_totals(nds)
   result = {}
   for director in nds do
-    director_total = []
-    for movie in each[:movies] do
-      director_total << movie[:worldwide_gross]
-    end
-    result[director[:name]] = director_total
+    result[director[:name]] = gross_for_director(director)
   end
   result
 end
